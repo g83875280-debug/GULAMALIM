@@ -1,0 +1,28 @@
+name: My Free Linux Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Server Information
+        run: |
+          echo "===== SERVER STARTED ====="
+          echo "OS:"
+          uname -a
+          echo "CPU:"
+          nproc
+          echo "RAM:"
+          free -h
+          echo "DISK:"
+          df -h
+          echo "IP:"
+          hostname -I
+
+      - name: Keep Server Running
+        run: |
+          echo "Server is running..."
+          sleep 3600
