@@ -1,0 +1,26 @@
+name: Free VPS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check VPS
+        run: |
+          echo "VPS started"
+          echo "IP:"
+          hostname -I
+          echo "OS:"
+          uname -a
+          echo "CPU:"
+          nproc
+          echo "RAM:"
+          free -h
+
+      - name: Keep runner alive
+        run: |
+          echo "Runner active..."
+          sleep 3600
